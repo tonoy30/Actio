@@ -9,7 +9,7 @@ using RawRabbit;
 
 namespace Actio.Common.Services
 {
-    public class ServiceHost : IServiceHost
+    public partial class ServiceHost : IServiceHost
     {
         private readonly IWebHost _webHost;
 
@@ -34,11 +34,6 @@ namespace Actio.Common.Services
                 .UseDefaultServiceProvider(o =>
                     o.ValidateScopes = false);
             return new HostBuilder(webHostBuilder.Build());
-        }
-
-        public abstract class BuilderBase
-        {
-            public abstract ServiceHost Build();
         }
 
         public class HostBuilder : BuilderBase
